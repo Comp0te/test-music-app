@@ -1,11 +1,11 @@
 import { StyleProp, ViewStyle } from 'react-native';
 
-import { PlayerStateType } from '../../api/track-player';
+import { PlayerStateType } from '../../../../api/track-player';
 
 export interface IAudioPlayerProps {
   onNext: () => void;
   onPrevious: () => void;
-  onTogglePlayback: (state: PlayerStateType) => void;
+  onTogglePlayback: () => void;
   style?: StyleProp<ViewStyle>;
 }
 
@@ -15,7 +15,3 @@ export type UseTrackPlayerEvents = (
   events: string[],
   handler: (payload: unknown) => void,
 ) => void;
-
-export interface IUseAudioPlayersParams {
-  onTogglePlayback: (state: PlayerStateType) => void;
-}

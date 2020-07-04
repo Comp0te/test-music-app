@@ -1,6 +1,4 @@
-import TrackPlayer from 'react-native-track-player';
-
-import { forestTrack, licenseTrack } from '../playlist';
+import TrackPlayer, { Track } from 'react-native-track-player';
 
 export type PlayerStateType =
   | 'STATE_NONE'
@@ -28,12 +26,31 @@ export async function setup() {
   });
 }
 
-export async function togglePlayback(playbackState: PlayerStateType) {
+export const subscribeToInfinitePlay = (track: Track) => {
+  const subscription = TrackPlayer.addEventListener(
+    'playback-track-changed',
+    async () => {
+      await TrackPlayer.add(track);
+    },
+  );
+
+  return () => {
+    subscription.remove();
+  };
+};
+
+export async function toggleTrack(track: Track) {
+  await TrackPlayer.reset();
+  await TrackPlayer.add([track, track]);
+  await TrackPlayer.play();
+}
+
+export async function togglePlayback(track: Track) {
   const currentTrack = await TrackPlayer.getCurrentTrack();
-  if (currentTrack == null) {
-    await TrackPlayer.reset();
-    await TrackPlayer.add(forestTrack);
-    await TrackPlayer.add(licenseTrack);
+  const playbackState = await TrackPlayer.getState();
+
+  if (!currentTrack) {
+    await TrackPlayer.add(track);
     await TrackPlayer.play();
   } else {
     if (playbackState === TrackPlayer.STATE_PAUSED) {
@@ -42,31 +59,4 @@ export async function togglePlayback(playbackState: PlayerStateType) {
       await TrackPlayer.pause();
     }
   }
-}
-
-export function getStateName(state: PlayerStateType) {
-  switch (state) {
-    case TrackPlayer.STATE_NONE:
-      return 'None';
-    case TrackPlayer.STATE_PLAYING:
-      return 'Playing';
-    case TrackPlayer.STATE_PAUSED:
-      return 'Paused';
-    case TrackPlayer.STATE_STOPPED:
-      return 'Stopped';
-    case TrackPlayer.STATE_BUFFERING:
-      return 'Buffering';
-  }
-}
-
-export async function skipToNext() {
-  try {
-    await TrackPlayer.skipToNext();
-  } catch (_) {}
-}
-
-export async function skipToPrevious() {
-  try {
-    await TrackPlayer.skipToPrevious();
-  } catch (_) {}
 }

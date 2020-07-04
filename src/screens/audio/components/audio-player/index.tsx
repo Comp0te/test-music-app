@@ -9,29 +9,30 @@ import { useAudioPlayer } from './use-audio-player';
 
 export * from './types';
 
-export const AudioPlayer: React.FC<IAudioPlayerProps> = function ({
+export const AudioPlayer: React.FC<IAudioPlayerProps> = ({
   onNext,
   onPrevious,
   onTogglePlayback,
   style,
-}) {
+}) => {
   const {
     trackArtist,
     trackArtwork,
     trackTitle,
     middleButtonText,
-    handlePressToggle,
-  } = useAudioPlayer({ onTogglePlayback });
+  } = useAudioPlayer();
 
   return (
     <View style={[styles.card, style]}>
-      {trackArtwork && <Image style={styles.cover} source={trackArtwork} />}
+      <View style={styles.cover}>
+        {trackArtwork && <Image style={styles.image} source={trackArtwork} />}
+      </View>
       <ProgressBar />
       <Text style={styles.title}>{trackTitle}</Text>
       <Text style={styles.artist}>{trackArtist}</Text>
       <View style={styles.controls}>
         <ControlButton title={'<<'} onPress={onPrevious} />
-        <ControlButton title={middleButtonText} onPress={handlePressToggle} />
+        <ControlButton title={middleButtonText} onPress={onTogglePlayback} />
         <ControlButton title={'>>'} onPress={onNext} />
       </View>
     </View>

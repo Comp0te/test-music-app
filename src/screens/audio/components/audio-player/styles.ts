@@ -18,6 +18,10 @@ export const styles = StyleSheet.create({
     marginTop: 20,
     backgroundColor: 'grey',
   },
+  image: {
+    width: 140,
+    height: 140,
+  },
   title: {
     marginTop: 10,
   },

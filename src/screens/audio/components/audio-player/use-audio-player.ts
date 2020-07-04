@@ -4,17 +4,12 @@ import TrackPlayer, {
   // @ts-ignore
   useTrackPlayerEvents,
 } from 'react-native-track-player';
-import { useCallback, useState } from 'react';
-import {
-  IUseAudioPlayersParams,
-  UsePlaybackStateType,
-  UseTrackPlayerEvents,
-} from './types';
+import { useState } from 'react';
 import { ImageRequireSource } from 'react-native';
 
-export const useAudioPlayer = ({
-  onTogglePlayback,
-}: IUseAudioPlayersParams) => {
+import { UsePlaybackStateType, UseTrackPlayerEvents } from './types';
+
+export const useAudioPlayer = () => {
   const playbackState = (usePlaybackState as UsePlaybackStateType)();
   const [trackTitle, setTrackTitle] = useState<string>('');
   const [trackArtwork, setTrackArtwork] = useState<ImageRequireSource>();
@@ -39,15 +34,10 @@ export const useAudioPlayer = ({
     playbackState === TrackPlayer.STATE_PLAYING ||
     playbackState === TrackPlayer.STATE_BUFFERING;
 
-  const handlePressToggle = useCallback(() => {
-    onTogglePlayback(playbackState);
-  }, [onTogglePlayback, playbackState]);
-
   return {
     trackTitle,
     trackArtwork,
     trackArtist,
-    handlePressToggle,
     middleButtonText: isPlaying ? 'Pause' : 'Play',
   };
 };
