@@ -45,6 +45,10 @@ export async function toggleTrack(track: Track) {
   await TrackPlayer.play();
 }
 
+export async function seekTo(duration: number) {
+  await TrackPlayer.seekTo(duration);
+}
+
 export async function togglePlayback(track: Track) {
   const currentTrack = await TrackPlayer.getCurrentTrack();
   const playbackState = await TrackPlayer.getState();
