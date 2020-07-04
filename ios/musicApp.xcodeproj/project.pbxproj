@@ -194,7 +194,6 @@
 				CF63DE3EE03DA3D05AF08FDE /* Pods-musicApp-tvOSTests.debug.xcconfig */,
 				BB681BF14A015AA0F2F61BC8 /* Pods-musicApp-tvOSTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
