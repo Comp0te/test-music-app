@@ -14,8 +14,6 @@ export const styles = StyleSheet.create({
     backgroundColor: 'grey',
   },
   timerContainer: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'baseline',
+    alignItems: 'center',
   },
 });
