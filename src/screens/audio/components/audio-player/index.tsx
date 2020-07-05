@@ -1,5 +1,5 @@
 import React from 'react';
-import { Image, Text, View } from 'react-native';
+import { Button, Image, Text, View } from 'react-native';
 
 import { styles } from './styles';
 import { IAudioPlayerProps } from './types';
@@ -20,6 +20,7 @@ export const AudioPlayer: React.FC<IAudioPlayerProps> = ({
     trackArtwork,
     trackTitle,
     middleButtonText,
+    handlePressToEnd,
   } = useAudioPlayer();
 
   return (
@@ -36,6 +37,9 @@ export const AudioPlayer: React.FC<IAudioPlayerProps> = ({
         <ControlButton title={middleButtonText} onPress={onTogglePlayback} />
         <ControlButton title={'>>'} onPress={onNext} />
       </View>
+      {handlePressToEnd && (
+        <Button title={'To test switch tracks'} onPress={handlePressToEnd} />
+      )}
     </View>
   );
 };
