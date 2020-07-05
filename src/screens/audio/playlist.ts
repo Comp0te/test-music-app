@@ -18,9 +18,21 @@ export const playlist: Track[] = [
     title: 'License',
     artist: 'artist',
     album: 'album',
-    genre: 'License',
+    genre: 'Meditation',
     date: '2014-05-20T07:00:00+00:00',
     artwork: require('../../../assets/license.jpg'),
     duration: 423,
   },
 ];
+
+export const instructionTrack: Track = {
+  id: 'MeinHerzBrent',
+  url: require('../../../assets/rammstein-mein-herz-brennt.mp3'),
+  title: 'Rammstein Mein herz brennt',
+  artist: 'Rammstein',
+  album: 'MEIN HERZ BRENNT',
+  genre: 'Electronic, Rock',
+  date: '2014-05-20T07:00:00+00:00',
+  artwork: require('../../../assets/license.jpg'),
+  duration: 423,
+};
