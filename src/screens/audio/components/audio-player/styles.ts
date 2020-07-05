@@ -1,6 +1,6 @@
 import { StyleSheet } from 'react-native';
 
-import { shadowStyle } from '../../../../theme/styles';
+import { shadowStyle, titleStyle } from '../../../../theme/styles';
 
 export const styles = StyleSheet.create({
   card: {
@@ -29,5 +29,8 @@ export const styles = StyleSheet.create({
   controls: {
     marginVertical: 20,
     flexDirection: 'row',
+  },
+  titleText: {
+    ...titleStyle,
   },
 });

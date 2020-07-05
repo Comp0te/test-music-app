@@ -33,6 +33,7 @@ export const SoundPlayer: React.FC<ISoundPlayerProps> = ({ track }) => {
   return (
     <View style={styles.contentWrapper}>
       <View style={styles.sliderWrapper}>
+        <Text style={styles.titleText}>Foreground instructions</Text>
         <Text>{track.title}</Text>
         <Slider
           value={currentTime}

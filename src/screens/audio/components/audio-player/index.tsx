@@ -24,6 +24,7 @@ export const AudioPlayer: React.FC<IAudioPlayerProps> = ({
 
   return (
     <View style={[styles.card, style]}>
+      <Text style={styles.titleText}>Background meditation music</Text>
       <View style={styles.cover}>
         {trackArtwork && <Image style={styles.image} source={trackArtwork} />}
       </View>

@@ -1,4 +1,4 @@
-import { Platform } from 'react-native';
+import { Platform, TextStyle } from 'react-native';
 
 export const shadowStyle = Platform.select({
   ios: {
@@ -11,3 +11,10 @@ export const shadowStyle = Platform.select({
     elevation: 1,
   },
 });
+
+export const titleStyle: TextStyle = {
+  fontSize: 20,
+  lineHeight: 24,
+  color: 'rgba(1,6,34,0.91)',
+  textAlign: 'center',
+};

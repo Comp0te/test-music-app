@@ -1,5 +1,6 @@
 import { StyleSheet } from 'react-native';
-import { shadowStyle } from '../../../../theme/styles';
+
+import { shadowStyle, titleStyle } from '../../../../theme/styles';
 
 export const styles = StyleSheet.create({
   contentWrapper: {
@@ -29,5 +30,8 @@ export const styles = StyleSheet.create({
   controls: {
     flex: 1,
     alignItems: 'center',
+  },
+  titleText: {
+    ...titleStyle,
   },
 });
