@@ -18,7 +18,7 @@ export const SoundPlayer: React.FC<ISoundPlayerProps> = ({ track }) => {
     handlePressTogglePlay,
     togglePlayButtonLabel,
   } = useSoundPlayer({
-    file: track.url,
+    track,
   });
 
   if (error) {

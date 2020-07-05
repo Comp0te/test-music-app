@@ -8,6 +8,7 @@ interface IPrepareToPlayParams {
   setCurrentTimeCallback: GetCurrentTimeCallbackType;
   setErrorCallback: (value: string) => void;
   autoPlay?: boolean;
+  duration?: number;
 }
 
 class SoundService {
@@ -16,6 +17,7 @@ class SoundService {
 
   prepareToPlay({
     file,
+    duration,
     setDurationCallback,
     setCurrentTimeCallback,
     setErrorCallback,
@@ -27,11 +29,11 @@ class SoundService {
 
         return;
       }
-      // loaded successfully
-      const duration = this.getDuration();
 
       if (duration) {
         setDurationCallback(duration);
+      } else {
+        setDurationCallback(this._sound?.getDuration() ?? 0);
       }
 
       if (autoPlay) {

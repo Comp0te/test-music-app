@@ -1,9 +1,10 @@
 import { useCallback, useEffect, useState } from 'react';
 
 import { soundService } from '../../../../api/sound';
+import { IUseSoundHookParams } from '../../types';
 
 export const useSoundPlayer = ({
-  file,
+  track,
   autoPlay = false,
 }: IUseSoundHookParams) => {
   const [currentTime, setCurrentTime] = useState<number>(0);
@@ -25,11 +26,12 @@ export const useSoundPlayer = ({
 
   useEffect(() => {
     soundService.prepareToPlay({
-      file,
       setCurrentTimeCallback,
       setDurationCallback,
       setErrorCallback,
       autoPlay,
+      file: track.url,
+      duration: track.duration,
     });
 
     return () => {
@@ -40,10 +42,11 @@ export const useSoundPlayer = ({
     };
   }, [
     autoPlay,
-    file,
     setCurrentTimeCallback,
     setDurationCallback,
     setErrorCallback,
+    track.duration,
+    track.url,
   ]);
 
   const onSliderComplete = useCallback((value: number) => {

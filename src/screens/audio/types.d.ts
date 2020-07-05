@@ -1,4 +1,6 @@
+import { Track } from 'react-native-track-player';
+
 interface IUseSoundHookParams {
-  file: typeof require;
+  track: Track;
   autoPlay?: boolean;
 }

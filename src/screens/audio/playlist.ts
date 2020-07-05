@@ -34,5 +34,5 @@ export const instructionTrack: Track = {
   genre: 'Electronic, Rock',
   date: '2014-05-20T07:00:00+00:00',
   artwork: require('../../../assets/license.jpg'),
-  duration: 423,
+  duration: 50,
 };
