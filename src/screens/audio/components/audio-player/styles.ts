@@ -1,16 +1,14 @@
 import { StyleSheet } from 'react-native';
 
+import { shadowStyle } from '../../../../theme/styles';
+
 export const styles = StyleSheet.create({
   card: {
-    width: '80%',
-    elevation: 1,
-    borderRadius: 4,
-    shadowRadius: 2,
-    shadowOpacity: 0.1,
     alignItems: 'center',
-    shadowColor: 'black',
+    width: '80%',
+    borderRadius: 4,
     backgroundColor: 'white',
-    shadowOffset: { width: 0, height: 1 },
+    ...shadowStyle,
   },
   cover: {
     width: 140,

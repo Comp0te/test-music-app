@@ -4,7 +4,7 @@ import { Image, Text, View } from 'react-native';
 import { styles } from './styles';
 import { IAudioPlayerProps } from './types';
 import { ControlButton } from '../control-button';
-import { ProgressBar } from '../progress-bar';
+import { ProgressBar } from './components';
 import { useAudioPlayer } from './use-audio-player';
 
 export * from './types';
