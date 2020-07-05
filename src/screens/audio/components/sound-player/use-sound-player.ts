@@ -10,7 +10,6 @@ export const useSoundPlayer = ({
   const [duration, setDuration] = useState<number>(0);
   const [error, setError] = useState<string>('');
   const [playing, setPlaying] = useState<boolean>(autoPlay);
-  const loading = duration === 0;
 
   const setCurrentTimeCallback = useCallback((value: number, _) => {
     setCurrentTime(Math.floor(value * 10) / 10);
@@ -63,7 +62,6 @@ export const useSoundPlayer = ({
   }, [playing, setCurrentTimeCallback]);
 
   return {
-    loading,
     onSliderComplete,
     duration,
     currentTime,

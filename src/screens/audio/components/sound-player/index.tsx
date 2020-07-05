@@ -1,5 +1,5 @@
 import React from 'react';
-import { ActivityIndicator, Text, View } from 'react-native';
+import { Text, View } from 'react-native';
 import Slider from '@react-native-community/slider';
 
 import { styles } from './styles';
@@ -13,7 +13,6 @@ export const SoundPlayer: React.FC<ISoundPlayerProps> = ({ track }) => {
   const {
     duration,
     currentTime,
-    loading,
     error,
     onSliderComplete,
     handlePressTogglePlay,
@@ -24,10 +23,6 @@ export const SoundPlayer: React.FC<ISoundPlayerProps> = ({ track }) => {
 
   if (error) {
     return <Text>{error}</Text>;
-  }
-
-  if (loading) {
-    return <ActivityIndicator />;
   }
 
   return (
