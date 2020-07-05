@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button, Image, Text, View } from 'react-native';
+import { Button, Image, Platform, Text, View } from 'react-native';
 
 import { styles } from './styles';
 import { IAudioPlayerProps } from './types';
@@ -37,7 +37,8 @@ export const AudioPlayer: React.FC<IAudioPlayerProps> = ({
         <ControlButton title={middleButtonText} onPress={onTogglePlayback} />
         <ControlButton title={'>>'} onPress={onNext} />
       </View>
-      {handlePressToEnd && (
+      {handlePressToEnd && Platform.OS === 'ios' && (
+        // issue with seek on Android https://github.com/react-native-kit/react-native-track-player/issues/558
         <Button title={'To test switch tracks'} onPress={handlePressToEnd} />
       )}
     </View>

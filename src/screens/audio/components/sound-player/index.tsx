@@ -39,6 +39,7 @@ export const SoundPlayer: React.FC<ISoundPlayerProps> = ({ track }) => {
           thumbTintColor="#FF7D00"
           minimumTrackTintColor="#FF7D00"
           maximumTrackTintColor="#CCCCCC"
+          // Possible issue on Android https://github.com/react-native-community/react-native-slider/issues/118
           onSlidingComplete={onSliderComplete}
         />
       </View>
